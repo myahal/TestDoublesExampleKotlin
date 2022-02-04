@@ -1,8 +1,13 @@
 import org.junit.Test
+import org.junit.Assert.assertFalse
 
 internal class MissileLauncherTest {
     @Test
     fun givenExpiredLaunchCode_MissileIsNotLaunched() {
-        MissileLauncher.launchMissile(DummyMissile(), StubLaunchCode())
+        val missleSpy = SpyMissile()
+
+        MissileLauncher.launchMissile(missleSpy, StubLaunchCode())
+
+        assertFalse(missleSpy.launchWasCalled)
     }
 }

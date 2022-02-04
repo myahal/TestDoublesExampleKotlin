@@ -14,6 +14,14 @@ class DummyMissile: Missile {
     }
 }
 
+class SpyMissile: Missile {
+    var launchWasCalled = false
+
+    override fun launch() {
+        launchWasCalled = true
+    }
+}
+
 class StubLaunchCode: LaunchCode {
     override fun isExpired(): Boolean {
         return true
